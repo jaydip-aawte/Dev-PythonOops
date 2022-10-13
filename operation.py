@@ -1,11 +1,11 @@
 import os
-from migration import Migration
+
 from Student import Student
 class OperationManager:
  def addrow(filename,StudentList, name, address, age,sprt):
     std_obj=Student(str(len(StudentList)+1),name, address,age)
     StudentList.append(std_obj)
-    Migration.updatefile(StudentList,filename)
+   # Migration.updatefile(StudentList,filename)
 
  def updaterow(filename,StudentList,id,name,address,age,sprt):
         updated_list=[]
@@ -16,14 +16,14 @@ class OperationManager:
                 obj.name=name
                 obj.address=address
                 obj.age=age
-        Migration.updatefile(StudentList,filename)#rewriting updated list in the csv file
+       # Migration.updatefile(StudentList,filename)#rewriting updated list in the csv file
 
  def deleterow(filename,StudentList, id,sprt):
     updated_list = []
     for obj in StudentList:
       if obj.id== id:
         StudentList.remove(obj)
-    Migration.updatefile(StudentList,filename)
+    #Migration.updatefile(StudentList,filename)
     
 
 

@@ -1,12 +1,12 @@
-#in services we will perform operations on the data file
+#in services we have only performed write operation
 import os
-from migration import Migration
-from Student import Student
+from Repository import Repository
 
-class StudentService:
-    def create(CreateStudentRequest):
-        
-        print("here data list will be represented")
+class StudentServices:
+    def create(CreateStudentRequest,filename):
+        name,address,age=CreateStudentRequest.name,CreateStudentRequest.address,CreateStudentRequest.age
+        response=Repository.addrow(name,address,age,filename)
+        return response
 
     def update(CreateStudentRequest):
         print("Data will be printed here")
@@ -15,6 +15,7 @@ class StudentService:
         print("to search student in list")
     
     def delete(id):
-        std_obj=Student(str(len(StudentList)+1),name, address,age)
-        StudentList.append(std_obj)
-        Migration.updatefile(StudentList,filename)
+        # std_obj=Student(str(len(StudentList)+1),name, address,age)
+        # StudentList.append(std_obj)
+        # Migration.updatefile(StudentList,filename)
+        print("alt")
